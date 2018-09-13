@@ -1,0 +1,31 @@
+function MontyHallProblem(num) {
+var arr = [];
+var result = [];
+var check = [[true, false, false],
+             [false, true, false],
+             [false, false, true]];
+
+
+for (var i = 0; i < num; i++) {
+  arr.push([]);
+  arr[i].push( new Array(2));
+   for (var j = 0; j<2; j++){
+     arr[i][j] = Math.floor(Math.random()*3);
+   }
+}
+  
+for (var z =0; z<num; z++) {
+  var x=arr[z][0];
+  var y=arr[z][1];
+  result.push(check[x][y]);
+}
+var a=0;
+for (var i = 0; i<num;i++){
+  if(result[i] === true){
+    a++;
+  }
+}
+     alert("If don't change decision the amount of wins is " +a + " .");
+	 alert("If change decision the amount of wins is " + (+num - a) + " .");
+}
+MontyHallProblem(prompt("Put in the amount of sample, please."));
